@@ -44,6 +44,19 @@ class Query
     }
 
     /**
+     * @param array $array
+     * @return array
+     */
+    protected function references(array $array): array
+    {
+        $references = [];
+        foreach ($array as $key => $value) {
+            $references[$key] = &$array[$key];
+        }
+        return $references;
+    }
+
+    /**
      * @param string $sql
      * @param array $params
      * @return array
@@ -104,6 +117,8 @@ class Query
             );
         }
 
+        $params = $this->references($params);
+
         if (!empty($params)) {
             array_unshift($params, $types);
             if (false === call_user_func_array([$stmt, 'bind_param'], $params)) {
@@ -133,4 +148,3 @@ class Query
         return $return;
     }
 }
-
