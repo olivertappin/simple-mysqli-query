@@ -50,7 +50,7 @@ Out of the <abbr title="Create, Read, Update, Delete">CRUD</abbr> methods, the `
 A simple `SELECT` statement, with no parameters:
 
 ```php
-$data = $query->select('SELECT * FROM `my_table`');
+$data = $query->select('SELECT * FROM `pets`');
 
 return $data;
 ```
@@ -59,11 +59,10 @@ A simple `SELECT` statement, with parameters:
 
 ```php
 $params = [
-    123,
-    '2020-08-22',
+    'M',
 ];
 
-$data = $query->select('SELECT * FROM `my_table` WHERE `status_id` = ? AND `created_at` > ? ', $params);
+$data = $query->select('SELECT * FROM `pets` WHERE `sex` = ?', $params);
 
 return $data;
 ```
@@ -81,7 +80,7 @@ $params = [
     '2020-08-22',
 ];
 
-$return = $query->insert('INSERT INTO `my_table` VALUES (?, ?, ?, ?, ?)');
+$return = $query->insert('INSERT INTO `pets` VALUES (?, ?, ?, ?, ?)');
 
 return $return;
 ```
@@ -164,3 +163,5 @@ Which would look something like this, using a `DESCRIBE` statement:
 | death   | date        | YES  |     | NULL    |       |
 +---------+-------------+------+-----+---------+-------+
 ```
+
+Primary keys, indexes and character sets have been removed for simplicity. The table structure itself was taken directly from the [MySQL 'Creating Tables' documentation](https://dev.mysql.com/doc/refman/8.0/en/creating-tables.html).
