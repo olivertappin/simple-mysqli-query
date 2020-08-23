@@ -35,9 +35,9 @@ The supported types for this class are converted by using the `gettype()` value 
 | Type    | Character | Description                             |
 |---------|-----------|-----------------------------------------|
 | string  | s         | corresponding variable has type string  |
-| float   | s         | corresponding variable has type string  |
+| null    | s         | corresponding variable has type string  |
 | integer | i         | corresponding variable has type integer |
-| bool    | d         | corresponding variable has type double  |
+| float   | d         | corresponding variable has type double  |
 
 For more information about `bind_param` types, see: https://www.php.net/manual/en/mysqli-stmt.bind-param.php#refsect1-mysqli-stmt.bind-param-parameters 
 
